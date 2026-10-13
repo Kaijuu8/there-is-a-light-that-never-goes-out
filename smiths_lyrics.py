@@ -13,7 +13,7 @@ LYRICS = [
 BOX_W, BOX_H = 350, 300
 FONT = ("Helvetica", 25, "bold")
 
-# خلفية سوداء وكتابة زرقاء
+
 BG_COLOR = "#000000"
 FG_COLOR = "#0088FF"
 
@@ -45,19 +45,19 @@ class LyricCard:
         self.typewriter_index = 0
         self.typewriter()
         
-        self.base_x = x  # الموقع الأفقي الأساسي
+        self.base_x = x 
         self.x = x
         self.y = float(y)
         self.birth_time = creation_time
 
     def update_pos(self, dy, current_time):
-        # صعود للأعلى
+       
         self.y -= dy
         
-        # حركة تموجية أفقية باستخدام دالة الجيب (Sine Wave)
+        #  (Sine Wave)
         age = current_time - self.birth_time
-        amplitude = 30   # مدى التموج يمين ويسار (كلما زاد الرقم زاد عرض التموج)
-        frequency = 2.5  # سرعة اهتزاز التموج
+        amplitude = 30   
+        frequency = 2.5  
         self.x = self.base_x + amplitude * math.sin(age * frequency)
         
         self.win.geometry(f"{BOX_W}x{BOX_H}+{int(self.x)}+{int(self.y)}")
